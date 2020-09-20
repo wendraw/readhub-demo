@@ -13,13 +13,19 @@
 <van-popup show="{{ popupShow }}" closeable round safe-area-inset-top position="bottom" bind:close="onClose"
   class="van-popup-style" custom-style="border-radius: 14px 14px 0px 0px">
   <view class="popup-title bottom-border">设置事件提醒</view>
-  <view class="item">
+  <view class="item bottom-border">
     <text style="color: #666">事件名称</text>
-    <van-field value="{{ reminderTitle }}" right-icon="clear" border="{{ false }}" bind:change="onChange"
-      bind:click-icon="onClearTitle" custom-style="margin:4px 0px;padding:0px;font-size:16px" />
+    <van-field value="{{ eventTitle }}" right-icon="clear" border="{{ false }}" bind:change="onEventTitleChange"
+      bind:click-icon="onClearEventTitle" custom-style="margin:6px 0px;padding:0px;font-size:17px" />
   </view>
-  <view class="item">
-    <text style="color: #666">事件名称</text>
+  <view class="item bottom-border">
+    <view hover-class="timer-selector-hover-class">
+      <text style="color: #666">提醒时间</text>
+      <view class="timer-selector" style="margin:6px 0px">
+        <text style="flex:1">{{"9月20日 周日（今天）15:55"}}</text>
+        <van-icon name="arrow" color="gray"/>
+      </view>
+    </view>
   </view>
   <view style="margin:20px">
     <button style="width:100%;" type="primary">确定</button>

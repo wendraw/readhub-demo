@@ -39,5 +39,15 @@
 }
 
 .item {
-  margin: 20px;
+  padding: 14px 20px;
+}
+
+.timer-selector-hover-class {
+  background-color: #eee;
+}
+
+.timer-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
