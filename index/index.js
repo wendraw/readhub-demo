@@ -7,12 +7,14 @@ Page({
     time: "9 月 21 日",
     posContent: "起，公司股票交易进入退市整理，在退市整理期 30 个交易日后公司将为摘牌...根据公告，公司股票在退市整理期交易期间，公司将不筹划、不进行重大资产重组事项。",
     popupShow: true,
+    reminderTitle: "9 月 21 日起，暴风集团股票交易进入退市整理期"
   },
 
   onLoad: function () {},
 
   subscribeReminder: function (e) {
     this.setData({
+      reminderTitle: this.data.title,
       popupShow: true,
     })
   },
@@ -20,6 +22,12 @@ Page({
   onClose: function (e) {
     this.setData({
       popupShow: false,
+    })
+  },
+
+  onClearTitle: function (e) {
+    this.setData({
+      reminderTitle: ""
     })
   }
 })

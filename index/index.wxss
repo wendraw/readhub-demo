@@ -20,9 +20,24 @@
   text-decoration-color: goldenrod;
 }
 
+.bottom-border {
+  border-bottom-width: 1rpx;
+  border-bottom-style: solid;
+  border-color: #ddd
+}
+
 .popup-title {
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+}
+
+.my-button {
+  width: 100%;
+}
+
+.item {
+  margin: 20px;
 }

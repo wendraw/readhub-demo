@@ -11,10 +11,18 @@
 </view>
 
 <van-popup show="{{ popupShow }}" closeable round safe-area-inset-top position="bottom" bind:close="onClose"
-  class="van-popup-style" custom-style="border-radius: 14px">
-  <view class="popup-title">设置事件提醒</view>
-  <van-cell-group>
-    <van-cell title="单元格" value="内容" />
-    <van-cell title="单元格" value="内容" label="描述信息" border="{{ false }}" />
-  </van-cell-group>
+  class="van-popup-style" custom-style="border-radius: 14px 14px 0px 0px">
+  <view class="popup-title bottom-border">设置事件提醒</view>
+  <view class="item">
+    <text style="color: #666">事件名称</text>
+    <van-field value="{{ reminderTitle }}" right-icon="clear" border="{{ false }}" bind:change="onChange"
+      bind:click-icon="onClearTitle" custom-style="margin:4px 0px;padding:0px;font-size:16px" />
+  </view>
+  <view class="item">
+    <text style="color: #666">事件名称</text>
+  </view>
+  <view style="margin:20px">
+    <button style="width:100%;" type="primary">确定</button>
+  </view>
+
 </van-popup>
