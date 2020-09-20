@@ -21,23 +21,23 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
-    "useApiHook": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
     "useIsolateContext": true,
-    "useCompilerModule": false,
+    "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": []
   },
   "compileType": "miniprogram",
   "libVersion": "2.13.0",
-  "appid": "touristappid",
-  "projectname": "demo",
+  "appid": "wx200428ef775c7c2e",
+  "projectname": "readhub-demo",
   "debugOptions": {
     "hidedInDevtools": []
   },

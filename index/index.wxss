@@ -1,4 +1,20 @@
-.intro {
-  margin: 30px;
-  text-align: center;
+.title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.period {
+  color: gray;
+  font-weight: 300;
+  margin: 10px 0px;
+}
+
+.content {
+  margin: 20px 0px;
+  letter-spacing: 2px;
+  line-height: 30px;
+}
+
+.time {
+  text-decoration-line: underline;
 }

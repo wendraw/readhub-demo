@@ -1,1 +1,11 @@
-<view class="intro">欢迎使用代码片段，可在控制台查看代码片段的说明和文档</view>
+<view class="page-body">
+  <view class="title">{{title}}</view>
+
+  <view class="period">昨天</view>
+
+  <view class="content">
+    {{preContent}}
+    <text class="time">{{time}}</text>
+    {{posContent}}
+  </view>
+</view>
