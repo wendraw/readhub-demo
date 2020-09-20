@@ -1,9 +1,7 @@
 {
   "usingComponents": {
-    "van-popup": "@vant/weapp/popup/index",
-    "van-field": "@vant/weapp/field/index",
-    "van-cell": "@vant/weapp/cell/index",
-    "van-icon": "@vant/weapp/icon/index"
+    "my-popup": "/components/my-popup/my-popup",
+    "mp-icon": "weui-miniprogram/icon/icon"
   },
   "navigationBarTitleText": "话题详情"
 }

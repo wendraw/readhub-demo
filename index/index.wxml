@@ -10,25 +10,34 @@
   </view>
 </view>
 
-<van-popup show="{{ popupShow }}" closeable round safe-area-inset-top position="bottom" bind:close="onClose"
-  class="van-popup-style" custom-style="border-radius: 14px 14px 0px 0px">
-  <view class="popup-title bottom-border">设置事件提醒</view>
-  <view class="item bottom-border">
-    <text style="color: #666">事件名称</text>
-    <van-field value="{{ eventTitle }}" right-icon="clear" border="{{ false }}" bind:change="onEventTitleChange"
-      bind:click-icon="onClearEventTitle" custom-style="margin:6px 0px;padding:0px;font-size:17px" />
+<my-popup myVisible="{{popupShow}}" bindcancel="onClose" class="">
+  <view class="popup-title bottom-border">
+    <text style="flex:1">设置事件提醒</text>
+    <mp-icon icon="close" color="gray" size="{{16}}" bindtap="onClose"></mp-icon>
   </view>
   <view class="item bottom-border">
-    <view hover-class="timer-selector-hover-class">
+    <text style="color: #666">事件名称</text>
+    <input value="{{ eventTitle }}" />
+  </view>
+  <view class="item bottom-border">
+    <view hover-class="timer-selector-hover-class" bindtap="onShowTimerSelector">
       <text style="color: #666">提醒时间</text>
       <view class="timer-selector" style="margin:6px 0px">
         <text style="flex:1">{{"9月20日 周日（今天）15:55"}}</text>
-        <van-icon name="arrow" color="gray"/>
+        <mp-icon icon="arrow" color="gray" size="{{12}}"></mp-icon>
       </view>
     </view>
   </view>
-  <view style="margin:20px">
-    <button style="width:100%;" type="primary">确定</button>
-  </view>
-
-</van-popup>
+  <picker-view indicator-style="height: 50px;" value="{{value}}" hidden="{{showTimerSelector}}" bindchange="bindChange">
+    <picker-view-column>
+      <view wx:for="{{years}}" style="line-height: 50px;">{{item}}年</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{months}}" style="line-height: 50px;width:50px">{{item}}月</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{days}}" style="line-height: 50px;width:50px">{{item}}日</view>
+    </picker-view-column>
+  </picker-view>
+  <button style="width:90%" type="primary">确定</button>
+</my-popup>
