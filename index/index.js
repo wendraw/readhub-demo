@@ -123,25 +123,16 @@ Page({
     }).exec()
   },
 
-  showTimerPicker: function (e) {
-    const query = wx.createSelectorQuery().in(this);
-    query.select('#my-popup').boundingClientRect((res) => {
-      this.animate('#my-popup', [{
-        translateY: 0,
-      }, {
-        translateY: -res.height,
-      }], 200)
-    }).exec()
-  },
+  showTimerPicker: function (e) {},
 
   hideTimerPicker: function (e) {
     // const query = wx.createSelectorQuery().in(this);
     // query.select('#timer-picker').boundingClientRect((res) => {
     //   console.log(res);
-    //   this.animate('#my-popup', [{
-    //     translateY: 0,
+    //   this.animate('#timer-picker', [{
+    //     height: res.height,
     //   }, {
-    //     translateY: 10,
+    //     height: 0,
     //   }], 200)
     // }).exec();
     this.setData({

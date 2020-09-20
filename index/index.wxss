@@ -64,6 +64,7 @@
 
 .timer-selector-hover-class {
   background-color: #eee;
+  opacity: 0.9;
 }
 
 .timer-selector {
