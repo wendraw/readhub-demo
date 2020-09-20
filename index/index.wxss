@@ -17,4 +17,12 @@
 
 .time {
   text-decoration-line: underline;
+  text-decoration-color: goldenrod;
+}
+
+.popup-title {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

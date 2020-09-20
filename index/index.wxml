@@ -5,7 +5,16 @@
 
   <view class="content">
     {{preContent}}
-    <text class="time">{{time}}</text>
+    <text class="time" bindtap='subscribeReminder'>{{time}}</text>
     {{posContent}}
   </view>
 </view>
+
+<van-popup show="{{ popupShow }}" closeable round safe-area-inset-top position="bottom" bind:close="onClose"
+  class="van-popup-style" custom-style="border-radius: 14px">
+  <view class="popup-title">设置事件提醒</view>
+  <van-cell-group>
+    <van-cell title="单元格" value="内容" />
+    <van-cell title="单元格" value="内容" label="描述信息" border="{{ false }}" />
+  </van-cell-group>
+</van-popup>
