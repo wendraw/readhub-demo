@@ -48,9 +48,24 @@
 }
 
 .timer-selector {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 6px 0px
+}
+
+.timer-column-view-day {
+  line-height: 50px;
+  width: 100%;
+}
+
+.timer-column-view-hour {
+  line-height: 50px;
+  width: 50px;
+  /* background-color: teal; */
+}
+
+.timer-column-view-minute {
+  line-height: 50px;
+  width: 50px;
+  /* background-color: blue */
 }
 
 picker-view {
@@ -59,9 +74,16 @@ picker-view {
   height: 150px;
 }
 
-picker-view-column {
-  /* display: flex;
+.flex-center {
+  display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px; */
+}
+
+.ok-button {
+  background-color: cornflowerblue;
+  height: 40px;
+  margin: 20px;
+  color: white;
+  border-radius: 2px;
 }

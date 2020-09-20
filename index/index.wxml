@@ -13,31 +13,42 @@
 <my-popup myVisible="{{popupShow}}" bindcancel="onClose" class="">
   <view class="popup-title bottom-border">
     <text style="flex:1">设置事件提醒</text>
-    <mp-icon icon="close" color="gray" size="{{16}}" bindtap="onClose"></mp-icon>
+    <mp-icon icon="close" color="gray" size="{{16}}" bindtap="onClose" />
   </view>
   <view class="item bottom-border">
     <text style="color: #666">事件名称</text>
-    <input value="{{ eventTitle }}" />
+    <view class="flex-center">
+      <input value="{{ eventTitle }}" style="flex:1" />
+      <mp-icon icon="close2" color="gray" style="margin-left:10px" bindtap="onClearEventTitle" />
+    </view>
+
   </view>
   <view class="item bottom-border">
     <view hover-class="timer-selector-hover-class" bindtap="onShowTimerSelector">
       <text style="color: #666">提醒时间</text>
-      <view class="timer-selector" style="margin:6px 0px">
-        <text style="flex:1">{{"9月20日 周日（今天）15:55"}}</text>
-        <mp-icon icon="arrow" color="gray" size="{{12}}"></mp-icon>
+      <view class="timer-selector flex-center">
+        <text style="flex:1">{{days[timerIndexs[0]]+" " + hours[timerIndexs[1]]+":"+minutes[timerIndexs[2]]}}</text>
+        <mp-icon icon="arrow" color="gray" size="{{12}}" />
       </view>
     </view>
   </view>
-  <picker-view indicator-style="height: 50px;" value="{{value}}" hidden="{{showTimerSelector}}" bindchange="bindChange">
-    <picker-view-column>
-      <view wx:for="{{years}}" style="line-height: 50px;">{{item}}年</view>
-    </picker-view-column>
-    <picker-view-column>
-      <view wx:for="{{months}}" style="line-height: 50px;width:50px">{{item}}月</view>
-    </picker-view-column>
-    <picker-view-column>
-      <view wx:for="{{days}}" style="line-height: 50px;width:50px">{{item}}日</view>
-    </picker-view-column>
-  </picker-view>
-  <button style="width:90%" type="primary">确定</button>
+  <view class="flex-center">
+    <picker-view indicator-style="height: 50px" value="{{timerIndexs}}" hidden="{{showTimerSelector}}"
+      bindchange="onTimerChange" bindpickend="onTimerPickEnd">
+      <picker-view-column style="flex:2">
+        <view wx:for="{{days}}" wx:key="idx" class="flex-center timer-column-view-day">{{item}}</view>
+      </picker-view-column>
+      <picker-view-column style="flex:1">
+        <view wx:for="{{hours}}" class="flex-center timer-column-view-hour" wx:key="idx">{{item}}
+        </view>
+      </picker-view-column>
+      <picker-view-column style="flex:1">
+        <view wx:for="{{minutes}}" wx:key="idx" class="flex-center timer-column-view-minute">
+          {{item}}
+        </view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+
+  <view class="ok-button flex-center">确定</view>
 </my-popup>
