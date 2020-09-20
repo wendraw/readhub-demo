@@ -48,7 +48,7 @@ Page({
     time: "9 月 21 日",
     posContent: "起，公司股票交易进入退市整理，在退市整理期 30 个交易日后公司将为摘牌...根据公告，公司股票在退市整理期交易期间，公司将不筹划、不进行重大资产重组事项。",
     eventTitle: "9 月 21 日起，暴风集团股票交易进入退市整理期",
-    showTimerSelector: false,
+    timerPickerShow: false,
     popupShow: false,
 
     days: days,
@@ -57,18 +57,16 @@ Page({
     timerIndexs: [0, 0, 0],
   },
 
-  onLoad: function () {},
+  onLoad: function () {
+
+  },
 
   subscribeReminder: function (e) {
     this.setData({
       eventTitle: this.data.title,
       popupShow: true,
-    })
-  },
-
-  onClose: function (e) {
-    this.setData({
-      popupShow: false,
+    }, () => {
+      this.showMyPopup()
     })
   },
 
@@ -97,6 +95,57 @@ Page({
   onTimerPickEnd: function (e) {
     this.setData({
       timerIndexs: this.timerIndexs,
+    })
+  },
+
+  showMyPopup: function (e) {
+    const query = wx.createSelectorQuery().in(this);
+    query.select('#my-popup').boundingClientRect((res) => {
+      this.animate('#my-popup', [{
+        translateY: 0,
+      }, {
+        translateY: -res.height,
+      }], 200)
+    }).exec()
+  },
+
+  hidePopup: function (e) {
+    this.setData({
+      popupShow: false,
+    });
+    const query = wx.createSelectorQuery().in(this);
+    query.select('#my-popup').boundingClientRect((res) => {
+      this.animate('#my-popup', [{
+        translateY: -res.height,
+      }, {
+        translateY: 0,
+      }], 200)
+    }).exec()
+  },
+
+  showTimerPicker: function (e) {
+    const query = wx.createSelectorQuery().in(this);
+    query.select('#my-popup').boundingClientRect((res) => {
+      this.animate('#my-popup', [{
+        translateY: 0,
+      }, {
+        translateY: -res.height,
+      }], 200)
+    }).exec()
+  },
+
+  hideTimerPicker: function (e) {
+    // const query = wx.createSelectorQuery().in(this);
+    // query.select('#timer-picker').boundingClientRect((res) => {
+    //   console.log(res);
+    //   this.animate('#my-popup', [{
+    //     translateY: 0,
+    //   }, {
+    //     translateY: 10,
+    //   }], 200)
+    // }).exec();
+    this.setData({
+      timerPickerShow: !this.data.timerPickerShow,
     })
   }
 })
