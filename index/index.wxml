@@ -19,26 +19,29 @@
     <text style="flex:1">设置事件提醒</text>
     <mp-icon icon="close" color="gray" size="{{16}}" bindtap="hidePopup" />
   </view>
+
   <view class="item bottom-border">
-    <text style="color: #666">事件名称</text>
+    <text class="item-title">事件名称</text>
     <view class="flex-center">
       <input value="{{ eventTitle }}" style="flex:1" />
       <mp-icon icon="close2" color="gray" style="margin-left:10px" bindtap="onClearEventTitle" />
     </view>
-
   </view>
+
   <view class="item bottom-border">
-    <view hover-class="timer-selector-hover-class" bindtap="hideTimerPicker">
-      <text style="color: #666">提醒时间</text>
-      <view class="timer-selector flex-center">
+    <view hover-class="timer-selector-hover-class" bindtap="onTimerPickerTap">
+      <text class="item-title">提醒时间</text>
+      <view class="flex-center">
         <text style="flex:1">{{days[timerIndexs[0]]+" " + hours[timerIndexs[1]]+":"+minutes[timerIndexs[2]]}}</text>
         <mp-icon icon="arrow" color="gray" size="{{12}}" />
       </view>
     </view>
   </view>
-  <view id="timer-picker" class="flex-center" hidden="{{timerPickerShow}}">
-    <picker-view indicator-style="height: 50px" value="{{timerIndexs}}" bindchange="onTimerChange"
-      bindpickend="onTimerPickEnd">
+
+  <view id="timer-picker"
+    style="overflow:hidden; transition: max-height .3s; {{!timerPickerShow? 'max-height:0px;' : 'max-height:666rpx;'}}">
+    <picker-view style="height:210px;width:100%" indicator-style="height: 70px" value="{{timerIndexs}}"
+      bindchange="onTimerChange" bindpickend="onTimerPickEnd">
       <picker-view-column style="flex:2">
         <view wx:for="{{days}}" wx:key="idx" class="flex-center timer-column-view-day">{{item}}</view>
       </picker-view-column>
@@ -54,4 +57,6 @@
     </picker-view>
   </view>
   <view class="ok-button flex-center">确定</view>
+
+  <view class="safe-area" wx:if="{{isAllScreen}}"></view>
 </view>
